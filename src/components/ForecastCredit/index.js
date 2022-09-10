@@ -1,7 +1,6 @@
 import React from "react";
 import { useSharedIntervals } from "../../shared/intervals";
 import { useSharedAmounts } from "../../shared/amounts";
-import { amountPerMonth } from "../../helpers";
 import "./forecastCredit.scss";
 
 const ForecastCredit = () => {
@@ -14,7 +13,7 @@ const ForecastCredit = () => {
         Cuota fija por mes:
       </div>
       <div className="main-page__forecast-credit--marquee-value">
-        {creditAmount && amountPerMonth(creditAmount, creditInterval)}
+        {creditAmount && creditAmount / creditInterval}
       </div>
     </div>
   );

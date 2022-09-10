@@ -1,4 +1,4 @@
-# 🚀 Digbang Coding Challenge || Gustavo Malamud
+# 🚀 Coding Challenge
 
 This project was initially bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and then modified to taste. It's based on the requirements of the [Digbang Coding Exercise](https://github.com/digbang/ejercicio-react).
 

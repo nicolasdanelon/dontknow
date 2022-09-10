@@ -1,31 +1,39 @@
 import React from "react";
-import { useSharedAmounts } from "../../shared/amounts";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import "./amountSlider.scss";
-import { currencyFormatter } from "../../helpers";
 
-const AmountSlider = () => {
-  const { creditAmount, setCreditAmountValue } = useSharedAmounts("0");
+// eslint-disable-next-line react/prop-types
+const AmountSlider = ({ init, final, isMoney, value, setValue }) => {
+  const currencyFormatter = (v) => {
+    if (isMoney) {
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(v);
+    }
+
+    return v;
+  };
 
   return (
     <div className="amountSlider__slider-container">
       <Slider
         range
         allowCross={false}
-        onChange={(value) => setCreditAmountValue(value)}
-        min={5000}
-        max={50000}
-        value={creditAmount}
+        onChange={(value) => setValue(value)}
+        min={init}
+        max={final}
+        value={value}
         step={1}
         included={false}
       />
       <div className="amountSlider__slider-values-container">
         <div className="amountSlider__slider-left">
-          {currencyFormatter(5000)}
+          {currencyFormatter(init)}
         </div>
         <div className="amountSlider__slider-right">
-          {currencyFormatter(50000)}
+          {currencyFormatter(final)}
         </div>
       </div>
     </div>
